@@ -82,7 +82,7 @@ with st.sidebar.header('3. Set parameters'):
 
 if uploaded_file is not None:
     # Read CSV data
-    @st.cache
+    @st.cache_data
     def load_csv():
         csv = pd.read_csv(uploaded_file).iloc[:number2calc,1:]
         return csv
@@ -101,7 +101,7 @@ else:
     st.info('Awaiting for CSV file to be uploaded.')
     if st.button('Press to use Example Dataset'):
         # Read CSV data
-        @st.cache
+        @st.cache_data
         def load_data():
             # number2calc specifies the number of molecules to compute
             df = pd.read_csv('acetylcholinesterase_04_bioactivity_data_3class_pIC50.csv').iloc[:number2calc,1:]
